@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:38:24 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/08 23:16:05 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 12:02:52 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
-# include <string.h>
 # include <limits.h>
 
 typedef struct list
@@ -29,7 +26,7 @@ typedef struct list
 
 int		implement(t_list **stack, int num);
 int		is_sorted(t_list *stacka);
-t_list	*findmax(t_list *stack);
+int 	findmax(t_list *stack);
 void	indexed(t_list *stack);
 void	changeindex(t_list *stack);
 void	sorting(t_list **stacka, t_list **stackb);
@@ -42,6 +39,8 @@ int		checknum(char *num);
 char	**ft_split(const char *s, char c);
 int		ft_atoi(const char *str);
 void	ft_putstr(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlen(const char *s);
 
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -64,7 +63,7 @@ void	swap(t_list **stack);
 void	swapb(t_list **stack);
 void	ss(t_list **stack1, t_list **stack2);
 
-t_list	*find2nd(t_list *stack);
+int		find2nd(t_list *stack);
 int		ft_bestmove2(t_list *stack);
 void	bestmovesort(int bestmove, t_list **stacka, t_list **stackb);
 void	bestmovesort2(int bestmove, int bestmove2,
@@ -74,6 +73,7 @@ void	rev_bestmovesort2(int bestmove, int bestmove2,
 void	rev_bestmovesort(int bestmove, t_list **stacka, t_list **stackb);
 void	firstpush(int rule, int chunk, t_list **stacka, t_list **stackb);
 
+void	sort2(t_list **stacka);
 void	sort3(t_list **stacka);
 void	sort4(t_list **stacka, t_list **stackb);
 void	sort5(t_list **stacka, t_list **stackb);

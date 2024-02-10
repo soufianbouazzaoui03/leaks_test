@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 23:12:49 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/09 10:31:56 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:50:54 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,19 @@ int	main(int argc, char **argv)
 		return (ft_lstclear(&stacka, free), write(1, "Error\n", 6), 0);
 	if (ft_lstsize(stacka) == 0)
 		return (0);
-	if (is_sorted(stacka) == 0)
-		return (ft_lstclear(&stacka, free), write(1, "OK", 2), 0);
 	while (1)
 	{
 		instra = get_next_line(0);
 		if (!instra)
 			break ;
 		if (checker(instra, &stacka, &stackb) == 1)
-			return (ft_lstclear(&stacka, free), write(1, "Error\n", 6), 0);
+			return (ft_lstclear(&stacka, free), ft_lstclear(&stackb, free),
+				free(instra), write(1, "Error\n", 6), 0);
 		free(instra);
 	}
 	if (is_sorted(stacka) == 0 && ft_lstsize(stackb) == 0)
-		write(1, "OK", 2);
+		write(1, "OK\n", 3);
 	else
-		write(1, "KO", 2);
+		write(1, "KO\n", 3);
 	return (ft_lstclear(&stacka, free), ft_lstclear(&stackb, free), 0);
 }

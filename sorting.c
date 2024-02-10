@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:27:11 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/10 10:10:47 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:18:12 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,41 +35,35 @@ void	sorting(t_list **stacka, t_list **stackb)
 
 int	ft_bestmove(t_list *stack)
 {
-	t_list	*maxnode;
-	int		i;
+	int	maxnode;
+	int	i;
 
 	i = 0;
 	maxnode = findmax(stack);
-	if(!maxnode)
-		return (-1);
 	while (stack)
 	{
-		if (stack->content == maxnode->content)
+		if (stack->content == maxnode)
 			return (i);
 		i++;
 		stack = stack->next;
 	}
-	free(maxnode);
 	return (-1);
 }
 
 int	ft_bestmove2(t_list *stack)
 {
-	t_list	*secondnode;
-	int		i;
+	int	secondnode;
+	int	i;
 
 	i = 0;
 	secondnode = find2nd(stack);
-	if(!secondnode)
-		return (-1);
 	while (stack)
 	{
-		if (stack->content == secondnode->content)
+		if (stack->content == secondnode)
 			return (i);
 		i++;
 		stack = stack->next;
 	}
-	free(secondnode);
 	return (-1);
 }
 

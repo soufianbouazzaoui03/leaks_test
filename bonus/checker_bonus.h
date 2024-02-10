@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 05:15:32 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/09 08:16:09 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 12:03:02 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
-# include <string.h>
 # include <limits.h>
 
 typedef struct list
@@ -29,7 +26,9 @@ typedef struct list
 
 int		ft_atoi(const char *str);
 char	**ft_split(const char *s, char c);
+void	*ft_calloc(size_t count, size_t size);
 void	ft_putstr(const char *str);
+size_t	ft_strlen(const char *s);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void*));

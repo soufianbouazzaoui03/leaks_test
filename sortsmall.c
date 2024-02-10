@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 04:19:42 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/07 03:34:19 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:18:23 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,10 @@ void	sort5(t_list **stacka, t_list **stackb)
 	}
 	sort4(stacka, stackb);
 	pusha(stackb, stacka);
+}
+
+void	sort2(t_list **stacka)
+{
+	if ((*stacka)->content > (*stacka)->next->content)
+		swap(stacka);
 }

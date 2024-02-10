@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 02:05:46 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/01/28 12:58:10 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 12:03:29 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*ft_fill(const char *s, int start, int end)
 	int		i;
 
 	i = 0;
-	word = (char *)calloc((end - start + 1), sizeof(char));
+	word = (char *)ft_calloc((end - start + 1), sizeof(char));
 	if (!word)
 		return (NULL);
 	while (start < end)
@@ -85,10 +85,10 @@ char	**ft_split(const char *s, char c)
 	int		start;
 
 	ft_initia(&i, &j, &start);
-	list = (char **)calloc(wordcounter(s, c) + 1, sizeof(char *));
+	list = (char **)ft_calloc(wordcounter(s, c) + 1, sizeof(char *));
 	if (!list)
 		return (NULL);
-	while (i <= strlen(s))
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;

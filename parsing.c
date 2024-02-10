@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 10:08:56 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/10 08:43:42 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:16:04 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,12 @@ int	checklist(int argc, char **argv, t_list **stack)
 	{
 		list = ft_split(argv[i], ' ');
 		if (!list[0])
-			return (ft_lstclear(stack, free), 1);
+			return (ft_lstclear(stack, free), free(list), 1);
 		j = 0;
 		while (list[j])
 		{
 			if (checknum(list[j]) || implement(stack, ft_atoi(list[j])))
 				return (ft_lstclear(stack, free), ft_free(list), 1);
-			//free(list[j]);
 			j++;
 		}
 		ft_free(list);

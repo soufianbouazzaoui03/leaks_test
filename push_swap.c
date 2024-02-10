@@ -6,7 +6,7 @@
 /*   By: soel-bou <soel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 19:43:04 by soel-bou          #+#    #+#             */
-/*   Updated: 2024/02/10 10:08:45 by soel-bou         ###   ########.fr       */
+/*   Updated: 2024/02/10 11:29:05 by soel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static int	sort(t_list **stacka, t_list **stackb)
 
 	size = ft_lstsize(*stacka);
 	if (size < 3)
-		return (ft_lstclear(stacka, free), ft_lstclear(stackb, free), 0);
+		return (sort2(stacka), ft_lstclear(stacka, free), 0);
 	else if (size == 3)
-		return (sort3(stacka), ft_lstclear(stacka, free), ft_lstclear(stackb, free), 0);
+		return (sort3(stacka), ft_lstclear(stacka, free), 0);
 	else if (size == 4)
-		return (sort4(stacka, stackb), ft_lstclear(stacka, free), ft_lstclear(stackb, free), 0);
+		return (sort4(stacka, stackb), ft_lstclear(stacka, free), 0);
 	else if (size == 5)
-		return (sort5(stacka, stackb), ft_lstclear(stacka, free), ft_lstclear(stackb, free), 0);
+		return (sort5(stacka, stackb), ft_lstclear(stacka, free), 0);
 	else
 	{
 		indexed(*stacka);
@@ -46,15 +46,10 @@ static int	sort(t_list **stacka, t_list **stackb)
 	}
 }
 
-void leak(void)
-{
-	system("leaks push_swap");
-}
 int	main(int argc, char **argv)
 {
 	t_list	*stack;
 	t_list	*stackb;
-	atexit(leak);
 
 	if (checklist(argc, argv, &stack))
 	{
@@ -65,10 +60,9 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack) == 0)
 	{
 		ft_lstclear(&stack, free);
-		exit(EXIT_FAILURE);
+		return (0);
 	}
 	sort(&stack, &stackb);
 	ft_lstclear(&stack, free);
-	ft_lstclear(&stackb, free);
 	return (0);
 }
